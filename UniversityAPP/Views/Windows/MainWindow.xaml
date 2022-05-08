@@ -1,0 +1,129 @@
+﻿<Window x:Class="Ejournall.Views.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Ejournal" Height="650" Width="1100"
+        >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="0.3*"/>
+        </Grid.RowDefinitions>
+        <!--#region Logo-->
+        <Border Background="#FF0DB686" Grid.Row="0" Grid.Column="0" Visibility="Visible">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Background="#154360"/>
+                <DockPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                   
+                    <TextBlock Text="Ejournall" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Center"/>
+                </DockPanel>
+            </Grid>
+        </Border>
+        <!--#endregion-->
+        <!--#region Buttons-->
+        <Border Background="#154360" Grid.Row="0" Grid.Column="1">
+            <Grid x:Name="CRUD">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Background="White">
+                </Border>
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="0">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF16A1AC"/>
+                    <GradientStop Color="#FF038447" Offset="1"/>
+                    <GradientStop Color="#FF11CCA1" Offset="0.531"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <StackPanel Margin="0,20">
+                <Button Height="40" Background="#FF1D2860" Name="btnStudents" Style="{DynamicResource menuButtons}" Command="{Binding Path = StudentCommand}">
+                    <DockPanel Width="109" HorizontalAlignment="Left">
+                        <materialDesign:PackIcon Kind="Person" Width="30" Height="30" Foreground="White" Margin="0,0,10,0" HorizontalAlignment="Left"/>
+                        <TextBlock Text="Students" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
+                <Button Height="40" Background="#FF1D2860"  Style="{DynamicResource menuButtons}" Command="{Binding Path = TeacherCommand}">
+                    <DockPanel Width="109" HorizontalAlignment="Left">
+                        <materialDesign:PackIcon Kind="Teaching" Width="30" Height="30" Foreground="White" Margin="0,0,10,0"/>
+                        <TextBlock Text="Teachers" Foreground="White" FontSize="15" VerticalAlignment="Center" />
+                    </DockPanel>
+                </Button>
+                <Button Height="40" Background="#FF1D2860"  Style="{DynamicResource menuButtons}" Command="{Binding Path=GroupCommand}">
+                    <DockPanel Width="109" HorizontalAlignment="Left">
+                        <materialDesign:PackIcon Kind="PeopleGroup" Width="30" Height="30" Foreground="White" Margin="0,0,10,0"/>
+                        <TextBlock Text="Groups" Foreground="White" FontSize="15" VerticalAlignment="Center" />
+                    </DockPanel>
+                </Button>
+                <Button Height="40" Background="#154360"  Style="{DynamicResource menuButtons}" Command="{Binding Path = SpecialityCommand}">
+                    <DockPanel Width="120" HorizontalAlignment="Left" Margin="12,0,0,0">
+                        <materialDesign:PackIcon Kind="Bookshelf" Width="30" Height="30" HorizontalAlignment="Left" Foreground="White" Margin="0,0,10,0"/>
+                        <TextBlock Text="Specialities" Foreground="White" FontSize="15" VerticalAlignment="Center" />
+                    </DockPanel>
+                </Button>
+                <Button Height="40" Background="#154360"  Style="{DynamicResource menuButtons}" Command="{Binding Path = ExamCommand}">
+                    <DockPanel  Width="109" HorizontalAlignment="Left">
+                        <materialDesign:PackIcon Kind="PointOfSale" Width="30" Height="30" Foreground="White" Margin="0,0,10,0"/>
+                        <TextBlock Text="Exams" Foreground="White" FontSize="15" VerticalAlignment="Center" />
+                    </DockPanel>
+                </Button>
+                <Button Height="40" Background="#FF1D2860"  Style="{DynamicResource menuButtons}" Command="{Binding Path = SubjectCommand}">
+                    <DockPanel Width="109" HorizontalAlignment="Left">
+                        <materialDesign:PackIcon Kind="Library" Width="30" Height="30" Foreground="White" Margin="0,0,10,0"/>
+                        <TextBlock Text="Subjects" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
+                <Button Height="40" Background="#FF1D2860"  Style="{DynamicResource menuButtons}" Command="{Binding Path= LessonCommand}">
+                    <DockPanel Width="109" HorizontalAlignment="Left">
+                        <materialDesign:PackIcon Kind="ClockAlert" Width="30" Height="30" Foreground="White" Margin="0,0,10,0"/>
+                        <TextBlock Text="Lessons" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
+                <Button Height="40" Background="#FF1D2860"  Style="{DynamicResource menuButtons}" Command="{Binding Path= LessonTimesCommand}">
+                    <DockPanel Width="142" HorizontalAlignment="Left">
+                        <materialDesign:PackIcon Kind="ClipboardTextClockOutline" Width="30" Height="30" Foreground="White" Margin="15,0,10,0"/>
+                        <TextBlock Text="Lesson Times" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
+                <Button Height="40" Background="#FF1D2860"  Style="{DynamicResource menuButtons}" Command="{Binding Path=ExamScore}">
+                    <DockPanel Width="109" HorizontalAlignment="Left">
+                        <materialDesign:PackIcon Kind="Checkbook" Width="30" Height="30" Foreground="White" Margin="0,0,10,0"/>
+                        <TextBlock Text="Scores" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
+        </Border>
+        <!--#endregion-->
+        <Border Grid.Column="1" Grid.Row="1" Background="#FFEEEEEE">
+            <Grid x:Name="Content">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="450" Width="500">
+                    <Border Width="450" Height="450" CornerRadius="500" VerticalAlignment="Center">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF5BC407" Offset="0.997"/>
+                                <GradientStop Color="#FF39AB08" Offset="1"/>
+                                <GradientStop Color="#FF079FC9" Offset="0"/>
+                                <GradientStop Color="#FF91D2A6" Offset="0.485"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <materialDesign:PackIcon Kind="School" Panel.ZIndex="2" Foreground="White"
+                                             Width="300" Height="300" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

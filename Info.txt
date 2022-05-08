@@ -1,0 +1,17 @@
+ISTIFADECI ADI
+
+
+
+University APP WPF Applikasiyasi Klassik MsSql Serverde hazirlanmis ve Online Serverde Saxlanilan Databazaya Melumat Yazmaq,
+Bazadan melumat silmek, deyisdirmek (CRUD) meqsedile yazilib. Her bir cedvel ucun Excele vacib melumatlari yazdirmaq ucun funksiya movcuddur
+ve UI da "Excel" duymesini sixmaq kifayetdir.
+
+Proyektde Ado.Net, MVVM, Repository Patternleri Isledilib.
+
+LOGIN:
+Username ve Parol daxil ederek giris edirsiz.
+Parol Deyismek ucun Username Daxil edilir ve "Forget Password" duymesi sixilir. Eger daxil edilmis username e uygun istifadeci heqiqeten
+movcuddursa, parolu deyismek ucun pencere acilir ve istifadeci adini daxil etdiyiniz istifadecinin e-mail unvanina verifikasiya kodu 
+gonderilir (Spam inbox) kodu daxil edib parolu deyismek ucun tesdiq alinir ve emeliyyat yerine yetirilir.
+REGISTRATION hissesi ucun de eyni mentiq kecerlidir.
+

@@ -1,0 +1,107 @@
+﻿<Window x:Class="Ejournall.Views.Windows.RegistrationPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ejournall.Views.Windows"
+        xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        ResizeMode="NoResize"
+        Title="LoginPanel" Height="400" Width="340">
+    <Grid Background="White" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+        <Grid x:Name="gridBody" VerticalAlignment="Center" Height="350">
+            <Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0"/>
+           
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="118*"/>
+                    <RowDefinition Height="45*"/>
+                    <RowDefinition Height="45*"/>
+                    <RowDefinition Height="45*"/>
+                    <RowDefinition Height="60*"/>
+                    <RowDefinition Height="30*"/>
+
+                </Grid.RowDefinitions>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="100" Width="100">
+                    <Border Width="100" Height="100" CornerRadius="500">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF139FC6"/>
+                                <GradientStop Color="#FF89DBED" Offset="1"/>
+                                <GradientStop Color="#FF3ADBBB" Offset="0.544"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <materialDesign:PackIcon Kind="School" Panel.ZIndex="2" Foreground="White"
+                                             Width="70" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </StackPanel>
+
+                <StackPanel x:Name="user" Orientation="Horizontal"
+                            HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Height="30" Width="210">
+                    <materialDesign:PackIcon Kind="User" Width="30" Height="30" Foreground="#FF4DEBEB"/>
+                    <TextBox materialDesign:HintAssist.Hint="UserName" FontSize="17" Padding="5,0"
+                             VerticalContentAlignment="Center" Margin="5,0" BorderThickness="0,0,0,1"
+                             Height="30" Width="170" Text="{Binding User.UserName,Mode=TwoWay}" Name="UserText" Visibility="Visible">
+                    </TextBox>
+                </StackPanel>
+                <StackPanel x:Name="Email" Orientation="Horizontal"
+                            HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Height="30" Width="210">
+                    <materialDesign:PackIcon Kind="Gmail" Width="30" Height="30" Foreground="#FF4DEBEB"/>
+                    <TextBox materialDesign:HintAssist.Hint="Email" FontSize="17" Padding="5,0"
+                             VerticalContentAlignment="Center" Margin="5,0" BorderThickness="0,0,0,1"
+                             Height="30" Width="170" Text="{Binding User.Mail,Mode=TwoWay}" Name="EmailText" Visibility="Visible">
+                    </TextBox>
+                </StackPanel>
+                <StackPanel Name="password" Orientation="Horizontal" HorizontalAlignment="Center"
+                            VerticalAlignment="Center" Grid.Row="3" Height="30" Width="210">
+                    <StackPanel Width="30" Height="30">
+                        <Button x:Name="btnEyeOn" Click="btnEyeOn_Click_1" Background="Transparent" BorderThickness="0" Padding="0">
+                            <Image x:Name="imgEyeOn" Source="Images\hidden.png" RenderOptions.BitmapScalingMode="Fant"/>
+                        </Button>
+                        <Button x:Name="btnEyeOff"  Visibility="Collapsed" Click="btnEyeOff_Click"  Background="Transparent" BorderThickness="0" Padding="0">
+                            <Image x:Name="imgEyeOff" Source="Images\eye.png" RenderOptions.BitmapScalingMode="Fant"/>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Width="180" Height="30">
+                        <PasswordBox Name="psbPassword" materialDesign:HintAssist.Hint="Password"
+                                     FontSize="17" Padding="5,0" BorderThickness="0,0,0,1"
+                             VerticalContentAlignment="Center" Margin="5,0"
+                             Height="30" Width="170">
+                            <PasswordBox.InputBindings>
+                                <KeyBinding  Command="{Binding Path = Registration}" CommandParameter="{Binding ElementName = psbPassword}" Key="Enter"/>
+                            </PasswordBox.InputBindings>
+                        </PasswordBox>
+                        <TextBox x:Name="txtPassword" FontSize="17" Padding="5,0" 
+                                 materialDesign:HintAssist.Hint="Password" BorderThickness="0,0,0,1"
+                             VerticalContentAlignment="Center" Margin="5,0"
+                             Height="30" Width="170">
+                            <TextBox.InputBindings>
+                                <KeyBinding  Command="{Binding Path=Registration}" CommandParameter="{Binding ElementName=psbPassword}" Key="Enter"/>
+                            </TextBox.InputBindings>
+                        </TextBox>
+                    </StackPanel>
+
+                </StackPanel>
+                <CheckBox x:Name="chkBoxPasswordShow" Visibility="Hidden"/>
+                <Button Grid.Row="4" x:Name="btnLogin" Width="130" Height="40" BorderThickness="0"
+                        materialDesign:ButtonAssist.CornerRadius="20" Command="{Binding Path=Registration}" CommandParameter="{Binding ElementName =psbPassword }" Foreground="#FF22D49B">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF27A7D3" Offset="1"/>
+                            <GradientStop Color="#FF22D49B" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <TextBlock Text="Sign Up" Foreground="White" FontSize="20"/>
+                </Button>
+                <Button Command="{Binding Path = OpenLogin}" Grid.Row="5" Margin="0" Content="Already Have an Account?" FontFamily="10" Width="200" Foreground="#FF22D49B"
+                        Padding="0" Background="Transparent" BorderThickness="0" 
+                        VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
